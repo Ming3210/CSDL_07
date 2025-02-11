@@ -95,7 +95,11 @@ where length(ten_phim) > 15 and length(ten_phim) < 25;
 select concat(ten_phong, ' - ', trang_thai) as 'Trạng thái phòng chiếu' from tblphong;
 
 -- 9
-
+create view tblRank as 
+select row_number() over(order by Ten_phim) as STT, 
+       Ten_phim, 
+       Thoi_gian 
+from tblPhim;
 -- 10
 alter table tblphim
 add mo_ta nvarchar(1000);
